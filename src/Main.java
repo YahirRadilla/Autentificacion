@@ -40,7 +40,7 @@ class MyFrame extends JFrame{
 		int screenHeight = screenSize.height;
 		
 		
-		setTitle("Registro");
+		setTitle("Ventana");
 		setBounds(screenWidth / 2, screenHeight / 2, 500, 700);
 		setLocationRelativeTo(null);
 		setResizable(false);
