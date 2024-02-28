@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -11,6 +12,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -40,7 +44,7 @@ class MyFrame extends JFrame{
 		int screenHeight = screenSize.height;
 		
 		
-		setTitle("Ventana");
+		setTitle("Registro");
 		setBounds(screenWidth / 2, screenHeight / 2, 500, 700);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -48,15 +52,32 @@ class MyFrame extends JFrame{
 		
 		JTabbedPane compExample= new JTabbedPane();
 		Registro registro = new Registro();
-		ComboBoxExample comboBoxExample = new ComboBoxExample();
-		SliderExample sliderExample = new SliderExample();
-		RadioExample radioExample = new RadioExample();
+		IniciarSesion iniciarSesion = new IniciarSesion();
+		RestaurarContrasena restaurarContrasena = new RestaurarContrasena();
+		Menu menu = new Menu();
 		
+		JMenuBar mb=new JMenuBar();
+        setJMenuBar(mb);
+        
+        JMenu menu1=new JMenu("OPTIONS");
+        mb.add(menu1);
+        
+        JMenu mi1 = new JMenu("Archivo");
+        menu1.add(mi1);
+        JMenuItem mi2 = new JMenu("Ayuda");
+        menu1.add(mi2);
+        
+        JMenuItem mi3 = new JMenuItem("Ayuda");
+        mi2.add(mi3);
+        JMenuItem mi4 =new JMenuItem("Salir");
+        mi1.add(mi4);
 		
 		compExample.addTab("Registro", registro);
-		compExample.addTab("ComboBox", comboBoxExample);
-		compExample.addTab("RadioButton", radioExample);
-		compExample.addTab("Slider", sliderExample);
+		compExample.addTab("Iniciar sesion", iniciarSesion);
+		compExample.addTab("Restaurar contraseña", restaurarContrasena);
+		compExample.addTab("Menu", menu);
+		
+
 		
 		add(compExample);
 	}
